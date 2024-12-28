@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+</head>
+<body>
+<div class="container">
+    <h1>Results</h1>
+    {% for question_number, front, back, answer, accuracy, loss, truth, color in results %}
+    <div class="card white darken-0 br-100%">
+        <div class="card-content">
+            <div class="div8020">
+                <div class="left">
+                    <span class="card-title">Question {{ question_number }}: {{ front }}</span>
+                    <br> Your Answer: {{ answer }}
+                    <br> Card Answer: {{ back }}
+                </div>
+                <div class="right">
+                    <div class="truth-and-accuracy">
+                        <svg class="donut-chart" viewBox="0 0 36 36">
+                            <!-- Background Circle -->
+                            <circle class="donut-chart-bg" cx="18" cy="18" r="15.915"></circle>
+                            <!-- Filled Circle -->
+                            <circle class="donut-chart-fill"
+                                    cx="18" cy="18" r="15.915"
+                                    style="stroke-dasharray: {{ accuracy }} {{ loss }};
+                   stroke: {{ color }};
+                   transform: rotate(90deg);
+                   transform-origin: center;">
+                            </circle>
+                            <!-- Text in the Center -->
+                            <text x="18" y="19" class="donut-chart-text" transform="rotate(0, 18, 18)">
+                                {{ accuracy }}%
+                                <br> {{ truth }}!
+                            </text>
+                        </svg>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    {% endfor %}
+    <a href="{% url 'main:setupload:upload' %}" class="btn btn-primary mt-3 waves-effect">Upload New Sets</a>
+</div>
+
+</body>
+</html>

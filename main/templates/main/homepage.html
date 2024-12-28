@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+</head>
+<body>
+<div class="container">
+    <h1>Vague Vocab</h1>
+
+    Welcome! Click
+    <a href="{% url 'main:setupload:upload' %}">THIS LINK</a>
+    to get started & upload your sets!
+
+    <br>
+    <h2>How to make a set</h2>
+    <div class="card">
+
+        <div class="card-content card-padding">
+            <h3 class="no-margin">Quizlet:</h3>
+            1. Save a quizlet as your own
+            <br>2. Click the 3 dots and click 'Export'
+            <br>3. Set between to 'tab' and between rows to 'new line'
+            <br>4. Click <a href="{% url 'main:setupload:upload' %}">this link</a> and paste it!
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content card-padding">
+            <h2 class="no-margin">Google Sheets:</h2>
+            1. Put the front of each card under the 'A' column
+            <br>2. Put the back of each card under the 'B' column
+            <br>3. Click File > Download > Tab Seperated Values (.tsv)
+            <br>4. Click <a href="{% url 'main:setupload:upload' %}">this link</a> and upload it!
+
+        </div>
+    </div>
+    Hi! I am Shaurya Patel. I am currently a 9th grader attending Jesuit College Prep. in Dallas TX. This site costs
+    money to run, so I have placed ads around the site. I am trying my best to
+    minimize the amount of ads on this website in order to provide the best learning experience for everyone.
+</div>
+</body>
+</html>

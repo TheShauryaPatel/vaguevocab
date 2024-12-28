@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+</head>
+<body>
+<div class="container">
+    <h1>Upload Vocab Sets</h1>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">Use Paste</span>
+            <form method="POST" enctype="multipart/form-data">
+                <div id="upload-form2">
+                    {% csrf_token %}
+                    {{ form2.as_p }}
+                </div>
+
+                <button class="btn" type="submit" name="form2_submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    <h1>Or</h1>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">Use Files</span>
+            <form method="POST" enctype="multipart/form-data">
+                <div id="upload-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+
+                <button class="btn" type="submit" name="form1_submit">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

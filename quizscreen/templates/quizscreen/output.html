@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+</head>
+<body>
+<div class="container">
+    <h1>{{ quantity }} Question Test</h1>
+    <form method="post" action="{% url 'main:results:result' %}">
+        {% csrf_token %}
+<!--        <ul class="list-group">-->
+            {% for value in front_values %}
+            <div class="card white darken-0 br-100%">
+                <div class="card-content">
+                    <strong>{{ value }}</strong>
+                    <div class="input-field">
+                        <input type="text" name="responses_{{ forloop.counter }}" class="form-control mt-2"
+                               placeholder="Your answer here" autocomplete="off" onpaste="return false;">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+<!--        </ul>-->
+        <button type="submit" class="btn btn-success mt-4 waves-effect">Submit</button> <a href="{% url 'main:setupload:upload' %}" class="btn btn-primary mt-3 waves-effect">Upload New Sets</a>
+    </form>
+<!--    <br>-->
+
+</div>
+</body>
+</html>
